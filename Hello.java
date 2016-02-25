@@ -9,7 +9,7 @@ public class Hello
 	{
 		Scanner input = new Scanner (System.in);
 		
-		int x, y, sum;
+		int x, y, sum, difference, product, quotient;
 		
 		System.out.print ("Please enter a number: ");
 		x = input.nextInt();
@@ -18,9 +18,14 @@ public class Hello
 		y = input.nextInt();
 		
 		sum = x + y;
+		difference = x - y;
+		product = x*y;
+		quotient = x/y;
 		
 		System.out.printf ("The sum of your two number is %d\n", sum);
-		
+		System.out.printf ("The difference of your two numbers is %d\n", difference);
+		System.out.printf ("The product of your two numbers is %d\n", product);
+		System.out.printf ("The quotient of your two numbers is %d\n", quotient);
 		
 	}
 }
