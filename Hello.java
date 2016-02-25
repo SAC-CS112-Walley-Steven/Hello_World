@@ -12,10 +12,10 @@ public class Hello
 		int x, y, sum;
 		
 		System.out.print ("Please enter a number: ");
-		x = input.nextint();
+		x = input.nextInt();
 		
 		System.out.print ("Please enter one last number and I'll add them together:  ");
-		y = input.nextint();
+		y = input.nextInt();
 		
 		sum = x + y;
 		
