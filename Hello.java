@@ -5,7 +5,9 @@ public class Hello
 {
 	public static void main (String [] args)
 	{
-		System.out.print ("Hello\nSteve");
+		String x = "Hello", y = "World";
+		
+		System.out.println ("x + y");
 		
 	}
 }
