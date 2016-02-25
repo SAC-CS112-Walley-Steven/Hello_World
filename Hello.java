@@ -14,7 +14,7 @@ public class Hello
 		System.out.print ("Please enter a number: ");
 		x = input.nextInt();
 		
-		System.out.print ("Please enter one last number and I'll add them together:  ");
+		System.out.print ("Please enter one more:  ");
 		y = input.nextInt();
 		
 		sum = x + y;
