@@ -9,7 +9,6 @@ public class Calculator {
 		Scanner input = new Scanner (System.in);
 		
 		int decision, operation; 
-		int done=0;
 		String name;
 		double quotient, number1, number2, sum, product, difference;
 		
