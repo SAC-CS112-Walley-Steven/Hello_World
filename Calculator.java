@@ -60,3 +60,8 @@ public class Calculator {
 	}
 
 }
+
+
+
+// 1. There are unecessary calculation
+// 2. If have time, please allow user to enter + - * /
