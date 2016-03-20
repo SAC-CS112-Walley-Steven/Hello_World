@@ -37,3 +37,5 @@ public class GuessGameGUI
 			}			
 	}
 }
+
+// Good job, Steve...Please put in a comment ti explain why you need to have Integer.parseInt
