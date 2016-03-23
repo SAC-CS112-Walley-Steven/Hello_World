@@ -83,3 +83,5 @@ public class RPCgame {
 	}
 
 }
+
+// Good job...please allow user to enter R/P/S instead of 1/2/3
