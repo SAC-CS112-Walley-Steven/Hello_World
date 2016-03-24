@@ -1,2 +1,2 @@
-# Beginning Practice Applications
+# Practice Applications
 
