@@ -1,87 +1,111 @@
-
 import java.util.Scanner;
 
-public class RPCgame {
+public class RPSgame {
 
 	public static void main(String[] args) 
 	{
-		Scanner input = new Scanner (System.in);
-		
-		int computerPick = 1+(int)(Math.random()*3);
-		String name;
-		int userInput=0, decision=0;
-		int gameCounter = 1;
-		double winPercent, win=0;
+		Scanner input=new Scanner (System.in);
+		int userValue = 0, play=0, gameCounter=1;
+		String decision=null,name;
+		String computerValue=null;
+		double win=0;
 		
 		System.out.print("Please enter name: ");
 		name=input.nextLine();
 		
-		System.out.printf("Hi %s, do you want to play Rock, Paper, Scissor?\nPress 1 for yes, 2 for no: ", name);
-		decision=input.nextInt();
+		System.out.printf("Hi %s, let's play Rock, Paper, Scissor!\n", name);
 		
-		if (decision ==1)
-			System.out.println("\nOkay great!");
-		else
-			System.out.println("Thank you! Have a nice day.");
+	do
+	{
+		int computerPick = 1+(int)(Math.random()*3);
+		gameCounter++;
 		
-		while (decision ==1)
+		System.out.print("\nPress R for Rock, P for Paper, S for Scissor: ");
+		String userInput = input.nextLine();
+		
+		if (userInput.equals("R")||userInput.equals("r"))
+			userValue = 1;
+		if (userInput.equals("P")||userInput.equals("p"))
+			userValue = 2;
+		if (userInput.equals("S")||userInput.equals("s")) 
+			userValue = 3;
+		
+		System.out.printf("\nYou chose %s.", userInput);
+		
+		if (computerPick==1) computerValue ="R";
+		if (computerPick==2) computerValue="P";
+		if (computerPick==3) computerValue="S";
+		
+		System.out.printf(" Computer chose %s.\n\n", computerValue);
+
+		if (userValue == 1)
 		{
-			
-			computerPick = 1+(int)(Math.random()*3);
-			System.out.printf("\nGame %d\nPress 1 for Rock, 2 for Paper, 3 for Scissor: \n", gameCounter);
-			userInput=input.nextInt();
-			
-			gameCounter ++;
-			
-			
-			if (userInput == computerPick)
+			if (computerPick==1)
 			{
-				System.out.printf("It's a Tie.\nWe both chose # %d", computerPick);
+				System.out.println("Its a tie.\nThis game will not count.");
+			    --gameCounter;
+			}
+			else if (computerPick==2)
+				System.out.println("You lose.\nPaper beats Rock.");
+			else
+			{
+				System.out.println("You win!\nRock beats Scissor.");
+				++win;
+			}
+		}
+		if (userValue ==2)
+		{
+			if (computerPick==1)
+			{
+				System.out.println("You win!\nPaper beats Rock.");
+				++win;
+			}
+			else if (computerPick==2)
+			{
+				System.out.println("Its a tie.\nThis game will not count.");
 				--gameCounter;
 			}
-			if ((userInput==1)&& (computerPick == 2))
-				System.out.printf("Im sorry, you lose. You chose # %d, I chose # %d\nPaper beats Rock", userInput, computerPick);
-			if ((userInput==1)&&(computerPick==3))
-			{
-				System.out.printf("Congrats, you win! You chose # %d, I chose # %d\nRock beats Scissor", userInput, computerPick);
-				++win;
-			}
-			if ((userInput==2)&& (computerPick==1))
-			{
-				System.out.printf("Congrats, you win! You chose # %d, I chose # %d\nPaper beats Rock", userInput, computerPick);
-				++win;
-			}
-			if ((userInput==2)&&(computerPick==3))	
-				System.out.printf("Im sorry, you lose. You chose # %d, I chose # %d\nScissor beats Paper", userInput, computerPick);
-			if ((userInput==3)&&(computerPick==1))	
-				System.out.printf("Im sorry, you lose. You chose # %d, I chose # %d\nRock beats Scissor", userInput, computerPick);
-			if ((userInput==3)&&(computerPick==2))	
-			{
-				System.out.printf("Congrats, you win! You chose # %d, I chose # %d\nScissor beats Paper", userInput, computerPick);
-				++win;
-			}
-			
-			System.out.print("\n\nPress 1 to play again, 2 to calculate results, 3 to quit: ");
-			decision = input.nextInt();
-			
-			if (decision == 2)
-			{
-				winPercent = (win/(double)(gameCounter-1))*100;
-				System.out.println("\n\nCalculating results..");
-				System.out.printf("\nYou won %.0f out of %d games for a winning percentage of %.0f%%\n", win, (gameCounter-1), winPercent);
-				if (winPercent > 0.50)
-					System.out.println("\nNice job! Keep up the good work!");
-				else
-					System.out.println("\nYou need more practise..");
-			}
-			
-			if (decision ==3)
-				System.out.println("\nThank you! Have a nice day.");
-		
+			else
+				System.out.println("You lose.\nScissor beats Paper");
 		}
-					
+		if (userValue ==3)
+		{
+			if (computerPick==1)
+				System.out.println("You lose.\nRock beats Scissor");
+			else if (computerPick==2)
+			{
+				System.out.println("You win.\nScissor beats Paper");
+				++win;
+			}
+				else
+			{
+				System.out.println("Its a tie.\nThis game will not count.");
+				--gameCounter;
+			}
+		}
+		
+		
+		System.out.print("\nPress P to play again or E to exit and calculate results: ");
+		decision = input.nextLine();
+		
+						
+		if (decision.equals("E")||decision.equals("e"))
+		{
+			double winPercent = (win/(double)(gameCounter-1))*100;
+			System.out.println("\n\nCalculating results..");
+			System.out.printf("\nYou won %.0f out of %d games for a winning percentage of %.0f%%\n", win, (gameCounter-1), winPercent);
+			if (winPercent > 50)
+				System.out.println("\nYou are pretty good!");
+			else
+				System.out.println("\nYou need more practise..");	
+		}
+		
 	}
-
+	while (decision.equals("P")||decision.equals("p"));
+	
+	System.out.println("\nHave a nice day!");
+	}
 }
 
 // Good job...please allow user to enter R/P/S instead of 1/2/3
+// R/P/S entry capability has been enabled. -Steve
