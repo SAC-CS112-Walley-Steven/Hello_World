@@ -20,7 +20,7 @@ public class GuessGameGUI
 		while (userInput != computerNum)
 			{
 			userInput = Integer.parseInt( JOptionPane.showInputDialog("Please enter a number between 1 and 10"));
-		
+				//Interger.parseInt converts a string to an int variable type.	
 			count++;
 			
 			String low = String.format("%d pick:   %d  is too small. Please try again.", count, userInput);		
