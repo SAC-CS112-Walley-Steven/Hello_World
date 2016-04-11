@@ -133,3 +133,5 @@ public class TicTacToe{
 		System.out.println("\n\nGame Over");
 	}
 }
+// Good job, Steven.  Now please see if you can keep track of the wins in an array rather than int win;
+// Also, create another array to hold player's move so you can play back if needed
